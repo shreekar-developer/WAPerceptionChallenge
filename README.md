@@ -7,13 +7,14 @@ This is my Fall 2023 submisson for the Wisconsin Autonomous Perceptions team cod
 I based the solution using the OpenCV Python Package. I used Google Colab to develop and test the solution.
 
 1. I split the picture down the middle into two pictures. I did this to simplify drawing the lines between the cones in future steps. 
-2. I converted the image to HSV color space. 
-3. I adjusted the lower and upper bounds of the HSV parameters to find only the red hue in the cones and set those. 
-4. Then a mask was made from which the contours were found for the red cones. 
-5. Then using the contours from the mask, I found the centroids of the cones which will be used to connect them for lines. 
-6. I also cut the upper 1/4 section of the picture from the centroid calculation and line drawing as the light reflections and doors were causing extraneous lines to be drawn. 
-7. The lines were drawn connecting the centroids of each cone on each side. 
-8. After they were drawn, the images were connected back together and were then displayed.
+2. Steps 3-7 are part of a function that is used twice, once for each half of the image.
+3. I converted the image to HSV color space. 
+4. I adjusted the lower and upper bounds of the HSV parameters to find only the red hue in the cones and set those. 
+5. Then a mask was made from which the contours were found for the red cones. 
+6. Then using the contours from the mask, I found the centroids of the cones which will be used to connect them for lines. 
+7. I also cut the upper 1/4 section of the picture from the centroid calculation and line drawing as the light reflections and doors were causing extraneous lines to be drawn. 
+8. The lines were drawn connecting the centroids of each cone on each side. 
+9. After they were drawn, the images were connected back together and were then displayed.
 
 ## Some things I tried and why it didn't work/why I changed it
 1. One thing I tried was to detect the cones using RGB color space which did not work as well as the HSV color space as with HSV, more details about hues can be accounted for with it being closer to human experience of the color. 
